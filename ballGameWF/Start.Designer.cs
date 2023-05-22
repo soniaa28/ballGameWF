@@ -70,6 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
             this.label2.Location = new System.Drawing.Point(306, 164);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(194, 18);
@@ -168,18 +169,22 @@
             // 
             // continueBtn
             // 
+            this.continueBtn.BackColor = System.Drawing.Color.Moccasin;
+            this.continueBtn.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.continueBtn.ForeColor = System.Drawing.Color.Sienna;
             this.continueBtn.Location = new System.Drawing.Point(340, 349);
             this.continueBtn.Name = "continueBtn";
-            this.continueBtn.Size = new System.Drawing.Size(139, 23);
+            this.continueBtn.Size = new System.Drawing.Size(147, 44);
             this.continueBtn.TabIndex = 11;
             this.continueBtn.Text = "Продовжити";
-            this.continueBtn.UseVisualStyleBackColor = true;
+            this.continueBtn.UseVisualStyleBackColor = false;
             this.continueBtn.Click += new System.EventHandler(this.continueBtn_Click);
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.continueBtn);
             this.Controls.Add(this.cat4);

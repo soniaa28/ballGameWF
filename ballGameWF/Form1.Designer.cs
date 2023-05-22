@@ -41,6 +41,7 @@
             // 
             this.txtScore.AutoSize = true;
             this.txtScore.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtScore.ForeColor = System.Drawing.Color.SaddleBrown;
             this.txtScore.Location = new System.Drawing.Point(21, 13);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(68, 22);
@@ -69,6 +70,7 @@
             // 
             this.lblPlayer.AutoSize = true;
             this.lblPlayer.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayer.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lblPlayer.Location = new System.Drawing.Point(49, 66);
             this.lblPlayer.Name = "lblPlayer";
             this.lblPlayer.Size = new System.Drawing.Size(83, 18);
@@ -88,6 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.iconPlayer);
             this.Controls.Add(this.lblPlayer);

@@ -24,28 +24,28 @@ namespace ballGameWF
         
         string[] files = Directory.GetFiles(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\", "*.png");
         SoundPlayer playerPopMouse = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\soundMouse.wav");
-        SoundPlayer playerPopFish = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\clickedpop.wav");
+        SoundPlayer gameSound = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\gameSound.wav");
+      SoundPlayer playerPopFish = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\clickedpop.wav");
         int spawnRate = 60;
        
         int score = 0;
         
-        public System.Timers.Timer aTimer = new System.Timers.Timer(2000);
+       
        
         public GameBall()
 
         {
-           
-            
-                
-            this.Cursor = new Cursor(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\cur.cur");
+
             InitializeComponent();
+
+            this.Cursor = new Cursor(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\cur.cur");
+           
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-          
+            gameSound.Play();
             Start start = new Start();
             start.PlayerCreated += Form1_PlayerCreated;
             start.ShowDialog();
-           
-
+         
         }
         
        
@@ -78,12 +78,12 @@ namespace ballGameWF
             PictureBox temPic = sender as PictureBox;
             if (temPic.Tag.ToString() == "fish")
             {
-                playerPopFish.Play();
+                //playerPopFish.Play();
                 score -= 5;
             }
             else
             {
-                playerPopMouse.Play();
+                //playerPopMouse.Play();
                 if (temPic.Tag.ToString() == "greenMouse") score += 5;
                 else score += 1;
                 

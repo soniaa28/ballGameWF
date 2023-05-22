@@ -17,6 +17,7 @@ namespace ballGameWF
         public Start()
         {
             InitializeComponent();
+
         }
 
         private void cat1_CheckedChanged(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace ballGameWF
             // Raise the PlayerCreated event
             OnPlayerCreated(player);
             this.Hide();
-            
+           
 
            
         }
