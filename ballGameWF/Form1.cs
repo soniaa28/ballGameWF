@@ -19,10 +19,10 @@ namespace ballGameWF
         Random rand = new Random();
         GraphicsPath path = new GraphicsPath();
         List<PictureBox> items = new List<PictureBox>();
-
+        
         string[] files = Directory.GetFiles(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\", "*.png");
-        string[] tags;
-
+        
+      
         int spawnRate = 60;
         int currentRate = 0;
         int lastScore = 0;
@@ -35,9 +35,12 @@ namespace ballGameWF
         public GameBall()
 
         {
+           
+            
+                
             this.Cursor = new Cursor(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\cur.cur");
             InitializeComponent();
-            
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             currentRate = spawnRate;
            
 
@@ -60,10 +63,13 @@ namespace ballGameWF
             newPic.SizeMode = PictureBoxSizeMode.StretchImage;
             newPic.BackgroundImageLayout = ImageLayout.Stretch;
             string temp = files[rand.Next(files.Length)];
-            newPic.Image = Image.FromFile(temp);
+            
+            newPic.BackgroundImage = Image.FromFile(temp);
+            
+            newPic.Tag = Path.GetFileNameWithoutExtension(temp);
             newPic.Height = 70;
             newPic.Width = 70;
-            if (temp == @"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\greenMouse.png") newPic.Tag = "greenMouse";
+            this.BackColor = Color.Transparent;
 
 
             int x = rand.Next(10, this.ClientSize.Width - newPic.Width);
@@ -76,10 +82,10 @@ namespace ballGameWF
         private void NewPic_Click(object sender, EventArgs e)
         {
             PictureBox temPic = sender as PictureBox;
-            if (temPic.Tag=="greenMouse") Game_Over();
+            if (temPic.Tag.ToString() == "greenMouse") score += 5;
+            else score += 1;
             items.Remove(temPic);
             this.Controls.Remove(temPic);
-            score += 1;
             txtScore.Text = "Score: " + score;
         }
         private void TimerEvent(object sender, EventArgs e)
@@ -95,19 +101,24 @@ namespace ballGameWF
            
            
             this.progressBar1.Value -= 5;
+            
 
-           
-            foreach(var x in items.ToList())
+            foreach (var x in items.ToList())
             {
-                if (x.Height <= 10 && x.Width <= 10)
+                if (x.Height <40 && x.Width < 40)
                 {
+                    if (x.Tag.ToString() == "pinkMouse") score -= 5;
+                    else score -= 2;
                     items.Remove(x);
                     this.Controls.Remove(x);
+                    txtScore.Text = "Score: " + score;
+
 
                 }
-               x.Height -= 5;
-               x.Width -= 5;
-               
+                x.Height -= 10;
+                x.Width -= 10;
+
+
             }
         }
 
