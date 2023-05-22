@@ -13,9 +13,10 @@ namespace ballGameWF
         public int score { get; set; }
         public Image icon { get; set; }
 
-        public Player(string name)
+        public Player(string name , Image _icon)
         {
             NickName = name;
+            icon = _icon;
         }
     }
 }

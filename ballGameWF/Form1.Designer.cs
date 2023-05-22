@@ -33,13 +33,15 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblPlayer = new System.Windows.Forms.Label();
+            this.iconPlayer = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // txtScore
             // 
             this.txtScore.AutoSize = true;
             this.txtScore.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtScore.Location = new System.Drawing.Point(12, 27);
+            this.txtScore.Location = new System.Drawing.Point(21, 13);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(68, 22);
             this.txtScore.TabIndex = 0;
@@ -48,7 +50,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.TimerEvent);
             // 
             // progressBar1
@@ -67,22 +69,33 @@
             // 
             this.lblPlayer.AutoSize = true;
             this.lblPlayer.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlayer.Location = new System.Drawing.Point(12, 70);
+            this.lblPlayer.Location = new System.Drawing.Point(49, 66);
             this.lblPlayer.Name = "lblPlayer";
             this.lblPlayer.Size = new System.Drawing.Size(83, 18);
             this.lblPlayer.TabIndex = 2;
             this.lblPlayer.Text = "Гравець :";
+            // 
+            // iconPlayer
+            // 
+            this.iconPlayer.Location = new System.Drawing.Point(2, 57);
+            this.iconPlayer.Name = "iconPlayer";
+            this.iconPlayer.Size = new System.Drawing.Size(41, 36);
+            this.iconPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconPlayer.TabIndex = 3;
+            this.iconPlayer.TabStop = false;
             // 
             // GameBall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.iconPlayer);
             this.Controls.Add(this.lblPlayer);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtScore);
             this.Name = "GameBall";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.iconPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,5 +107,6 @@
         private System.Windows.Forms.Timer timer1;
         private ProgressBar progressBar1;
         private Label lblPlayer;
+        private PictureBox iconPlayer;
     }
 }
