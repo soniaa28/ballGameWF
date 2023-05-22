@@ -13,58 +13,40 @@ using static System.Windows.Forms.DataFormats;
 
 namespace ballGameWF
 {
-    
     public partial class GameBall : Form
-
     {
-
         Random rand = new Random();
         GraphicsPath path = new GraphicsPath();
         List<PictureBox> items = new List<PictureBox>();
-        
         string[] files = Directory.GetFiles(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\", "*.png");
         SoundPlayer playerPopMouse = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\soundMouse.wav");
         SoundPlayer gameSound = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\gameSound.wav");
-      SoundPlayer playerPopFish = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\clickedpop.wav");
-        int spawnRate = 60;
-       
+        SoundPlayer playerPopFish = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\clickedpop.wav");
         int score = 0;
         
-       
-       
         public GameBall()
 
         {
-
             InitializeComponent();
-
             this.Cursor = new Cursor(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\cur.cur");
-           
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             gameSound.Play();
             Start start = new Start();
             start.PlayerCreated += Form1_PlayerCreated;
             start.ShowDialog();
-         
         }
         
-       
-
         private void MakePictureBox()
         {
             PictureBox newPic = new PictureBox();
             newPic.SizeMode = PictureBoxSizeMode.StretchImage;
             newPic.BackgroundImageLayout = ImageLayout.Stretch;
             string temp = files[rand.Next(files.Length)];
-            
             newPic.BackgroundImage = Image.FromFile(temp);
-            
             newPic.Tag = Path.GetFileNameWithoutExtension(temp);
             newPic.Height = 70;
             newPic.Width = 70;
             this.BackColor = Color.Transparent;
-
-
             int x = rand.Next(100, this.ClientSize.Width - newPic.Width);
             int y = rand.Next(10, this.ClientSize.Height - newPic.Height-100);
             newPic.Location = new Point(x, y);
@@ -95,13 +77,10 @@ namespace ballGameWF
         }
         private void TimerEvent(object sender, EventArgs e)
         {
-
             this.progressBar1.Value -= 3;
             if (this.progressBar1.Value <= 5 || score < -10)
             {
-
                 Game_Over();
-
             }
             if (score > 15) timer1.Interval = 1300;
 
@@ -116,15 +95,11 @@ namespace ballGameWF
                         items.Remove(x);
                         this.Controls.Remove(x);
                         txtScore.Text = "Бали : " + score;
-
-
                     }
                     x.Height -= 10;
                     x.Width -= 10;
 
-
                 }
-            
         }
 
       
