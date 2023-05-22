@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
 using System.Drawing.Drawing2D;
+using static System.Windows.Forms.DataFormats;
 
 namespace ballGameWF
 {
@@ -24,14 +25,11 @@ namespace ballGameWF
         
       
         int spawnRate = 60;
-        int currentRate = 0;
-        int lastScore = 0;
-        int health = 0;
-        int posX;
-        int posY;
+       
         int score = 0;
-        bool gameover = false;
+        
         public System.Timers.Timer aTimer = new System.Timers.Timer(2000);
+       
         public GameBall()
 
         {
@@ -41,7 +39,10 @@ namespace ballGameWF
             this.Cursor = new Cursor(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\cur.cur");
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            currentRate = spawnRate;
+          
+            Start start = new Start();
+            start.PlayerCreated += Form1_PlayerCreated;
+            start.ShowDialog();
            
 
         }
@@ -72,8 +73,8 @@ namespace ballGameWF
             this.BackColor = Color.Transparent;
 
 
-            int x = rand.Next(10, this.ClientSize.Width - newPic.Width);
-            int y = rand.Next(10, this.ClientSize.Height - newPic.Height);
+            int x = rand.Next(100, this.ClientSize.Width - newPic.Width);
+            int y = rand.Next(10, this.ClientSize.Height - newPic.Height-100);
             newPic.Location = new Point(x, y);
             newPic.Click += NewPic_Click;
             items.Add(newPic);
@@ -86,7 +87,7 @@ namespace ballGameWF
             else score += 1;
             items.Remove(temPic);
             this.Controls.Remove(temPic);
-            txtScore.Text = "Score: " + score;
+            txtScore.Text = "Бали : " + score;
         }
         private void TimerEvent(object sender, EventArgs e)
         {
@@ -111,7 +112,7 @@ namespace ballGameWF
                     else score -= 2;
                     items.Remove(x);
                     this.Controls.Remove(x);
-                    txtScore.Text = "Score: " + score;
+                    txtScore.Text = "Бали : " + score;
 
 
                 }
@@ -136,7 +137,21 @@ namespace ballGameWF
             timer1.Enabled = false;
             MessageBox.Show("Game Over" + Environment.NewLine + "You Scored: " + score + Environment.NewLine + "Click Ok to play again!", "Moo Says: ");
         }
+        private void Form1_PlayerCreated(object sender, PlayerEventArgs e)
+        {
+            // Update the label with the player's name
+            lblPlayer.Text = "Гравець: " + e.Player.NickName;
+        }
 
-       
+        
+    }
+    public class PlayerEventArgs : EventArgs
+    {
+        public Player Player { get; private set; }
+
+        public PlayerEventArgs(Player player)
+        {
+            Player = player;
+        }
     }
 }

@@ -12,7 +12,8 @@ namespace ballGameWF
 {
     public partial class Start : Form
     {
-        
+        public event EventHandler<PlayerEventArgs> PlayerCreated;
+
         public Start()
         {
            
@@ -42,6 +43,25 @@ namespace ballGameWF
         {
             if (cat4.Checked) pictureCat4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             else pictureCat4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+        }
+
+        private void continueBtn_Click(object sender, EventArgs e)
+        {
+            string nick;
+            nick = textBox1.Text;
+            // Create a new player instance
+            Player player = new Player(nick);
+
+            // Raise the PlayerCreated event
+            OnPlayerCreated(player);
+            this.Hide();
+            
+
+           
+        }
+        protected virtual void OnPlayerCreated(Player player)
+        {
+            PlayerCreated?.Invoke(this, new PlayerEventArgs(player));
         }
     }
 }

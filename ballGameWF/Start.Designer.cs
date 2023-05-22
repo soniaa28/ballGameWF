@@ -42,6 +42,7 @@
             this.cat2 = new System.Windows.Forms.RadioButton();
             this.cat3 = new System.Windows.Forms.RadioButton();
             this.cat4 = new System.Windows.Forms.RadioButton();
+            this.continueBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat3)).BeginInit();
@@ -64,7 +65,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(231, 23);
             this.textBox1.TabIndex = 1;
-         
             // 
             // label2
             // 
@@ -106,7 +106,11 @@
             this.pictureCat3.TabIndex = 5;
             this.pictureCat3.TabStop = false;
             // 
-       
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // pictureCat4
             // 
@@ -162,11 +166,22 @@
             this.cat4.UseVisualStyleBackColor = true;
             this.cat4.CheckedChanged += new System.EventHandler(this.cat4_CheckedChanged);
             // 
+            // continueBtn
+            // 
+            this.continueBtn.Location = new System.Drawing.Point(340, 349);
+            this.continueBtn.Name = "continueBtn";
+            this.continueBtn.Size = new System.Drawing.Size(139, 23);
+            this.continueBtn.TabIndex = 11;
+            this.continueBtn.Text = "Продовжити";
+            this.continueBtn.UseVisualStyleBackColor = true;
+            this.continueBtn.Click += new System.EventHandler(this.continueBtn_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.continueBtn);
             this.Controls.Add(this.cat4);
             this.Controls.Add(this.cat3);
             this.Controls.Add(this.cat2);
@@ -203,5 +218,6 @@
         private RadioButton cat2;
         private RadioButton cat3;
         private RadioButton cat4;
+        private Button continueBtn;
     }
 }

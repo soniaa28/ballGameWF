@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ballGameWF
 {
@@ -11,5 +12,10 @@ namespace ballGameWF
         public string NickName { get; set; }    
         public int score { get; set; }
         public Image icon { get; set; }
+
+        public Player(string name)
+        {
+            NickName = name;
+        }
     }
 }
