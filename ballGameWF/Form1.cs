@@ -10,6 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
 using System.Drawing.Drawing2D;
 using static System.Windows.Forms.DataFormats;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace ballGameWF
 {
@@ -24,6 +25,7 @@ namespace ballGameWF
         SoundPlayer playerPopFish = new SoundPlayer(@"..\..\..\sound\clickedpop.wav");
         int score = 0;
         List<Player> players = new List<Player>();
+      
         public GameBall()
 
         {
@@ -72,7 +74,7 @@ namespace ballGameWF
             }
             items.Remove(temPic);
             this.Controls.Remove(temPic);
-            txtScore.Text = "Áàëè : " + score;
+            txtScore.Text = "Бали : " + score;
 
         }
         private void TimerEvent(object sender, EventArgs e)
@@ -95,7 +97,7 @@ namespace ballGameWF
                         else score -= 2;
                         items.Remove(x);
                         this.Controls.Remove(x);
-                        txtScore.Text = "Áàëè : " + score;
+                        txtScore.Text = "Бали : " + score;
                     }
                     x.Height -= 10;
                     x.Width -= 10;
@@ -106,7 +108,7 @@ namespace ballGameWF
         private void Game_Over()
         {
             timer1.Enabled = false;
-            DialogResult dresult = MessageBox.Show("Õî÷åòå ç³ãðàòè ùå ðàç ?", "Ê³íåöü!"
+            DialogResult dresult = MessageBox.Show("Бажаєте зіграти ще раз ?", "Кінець!!"
                               , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dresult == DialogResult.OK)
             {
@@ -123,11 +125,13 @@ namespace ballGameWF
         private void Form1_PlayerCreated(object sender, PlayerEventArgs e)
         {
             // Update the label with the player's name
-            lblPlayer.Text = "Ãðàâåöü: " + e.Player.NickName;
+            lblPlayer.Text = "Гравець : " + e.Player.NickName;
             iconPlayer.Image = e.Player.icon;
             timer1.Enabled = true;
-        }
+            Player p = new Player(e.Player.NickName, score);
+            players.Add(p);
 
+        }
         
     }
     public class PlayerEventArgs : EventArgs

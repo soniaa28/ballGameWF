@@ -66,14 +66,21 @@ namespace ballGameWF
 
         private void continueBtn_Click(object sender, EventArgs e)
         {
-            string nick;
-            nick = textBox1.Text;
-            // Create a new player instance
-            Player player = new Player(nick,icon);
+            
+            if (textBox1.Text != String.Empty)
+            {
+                string nick;
+                nick = textBox1.Text;
+                // Create a new player instance
+                Player player = new Player(nick, icon);
 
-            // Raise the PlayerCreated event
-            OnPlayerCreated(player);
-            this.Hide();
+                // Raise the PlayerCreated event
+                OnPlayerCreated(player);
+                this.Hide();
+
+            }
+            else  MessageBox.Show("Введіть нікнейм!");
+          
            
 
            
