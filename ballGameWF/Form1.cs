@@ -72,7 +72,7 @@ namespace ballGameWF
             }
             items.Remove(temPic);
             this.Controls.Remove(temPic);
-            txtScore.Text = "¡‡ÎË : " + score;
+            txtScore.Text = "√Å√†√´√® : " + score;
 
         }
         private void TimerEvent(object sender, EventArgs e)
@@ -91,10 +91,11 @@ namespace ballGameWF
                     if (x.Height < 40 && x.Width < 40)
                     {
                         if (x.Tag.ToString() == "pinkMouse") score -= 5;
+                        if(x.Tag.ToString() == "fish") score +=1;
                         else score -= 2;
                         items.Remove(x);
                         this.Controls.Remove(x);
-                        txtScore.Text = "¡‡ÎË : " + score;
+                        txtScore.Text = "√Å√†√´√® : " + score;
                     }
                     x.Height -= 10;
                     x.Width -= 10;
@@ -105,7 +106,7 @@ namespace ballGameWF
         private void Game_Over()
         {
             timer1.Enabled = false;
-            DialogResult dresult = MessageBox.Show("’Ó˜ÂÚÂ Á≥„‡ÚË ˘Â ‡Á ?", " ≥ÌÂˆ¸!"
+            DialogResult dresult = MessageBox.Show("√ï√Æ√∑√•√≤√• √ß¬≥√£√∞√†√≤√® √π√• √∞√†√ß ?", "√ä¬≥√≠√•√∂√º!"
                               , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dresult == DialogResult.OK)
             {
@@ -122,7 +123,7 @@ namespace ballGameWF
         private void Form1_PlayerCreated(object sender, PlayerEventArgs e)
         {
             // Update the label with the player's name
-            lblPlayer.Text = "√‡‚Âˆ¸: " + e.Player.NickName;
+            lblPlayer.Text = "√É√∞√†√¢√•√∂√º: " + e.Player.NickName;
             iconPlayer.Image = e.Player.icon;
             timer1.Enabled = true;
         }
