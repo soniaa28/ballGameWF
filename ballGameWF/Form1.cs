@@ -23,7 +23,7 @@ namespace ballGameWF
         SoundPlayer gameSound = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\gameSound.wav");
         SoundPlayer playerPopFish = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\clickedpop.wav");
         int score = 0;
-        
+        List<Player> players = new List<Player>();
         public GameBall()
 
         {
@@ -39,7 +39,7 @@ namespace ballGameWF
         private void MakePictureBox()
         {
             PictureBox newPic = new PictureBox();
-            newPic.SizeMode = PictureBoxSizeMode.StretchImage;
+           
             newPic.BackgroundImageLayout = ImageLayout.Stretch;
             string temp = files[rand.Next(files.Length)];
             newPic.BackgroundImage = Image.FromFile(temp);
@@ -102,17 +102,21 @@ namespace ballGameWF
                 }
         }
 
-      
         private void Game_Over()
         {
             timer1.Enabled = false;
-            DialogResult dresult = MessageBox.Show("Are you sure ", "Alert"
+            DialogResult dresult = MessageBox.Show("Хочете зіграти ще раз ?", "Кінець!"
                               , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dresult == DialogResult.OK)
             {
+              
                 this.Hide();
                 GameBall g = new GameBall();
                 g.Show();
+            }
+            else
+            {
+                this.Close();
             }
         }
         private void Form1_PlayerCreated(object sender, PlayerEventArgs e)

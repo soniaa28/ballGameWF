@@ -82,5 +82,10 @@ namespace ballGameWF
         {
             PlayerCreated?.Invoke(this, new PlayerEventArgs(player));
         }
+
+        private void btnrule_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Гра в мишку :" + Environment.NewLine + "За певний час Вам потрібно натискати на мишей різних кольорів та отримувати +1 бал (за зелену мишку - ви отримуєте додатково 5 балів)!" + Environment.NewLine + "За пропуск мишки Ви отримуєте штраф -2 бали (за пропуск рожевої мишки -5 балів) " + Environment.NewLine + "Якщо поцілите у рибку, то штраф -10 балів!" + Environment.NewLine + "Приємної гри!");
+        }
     }
 }

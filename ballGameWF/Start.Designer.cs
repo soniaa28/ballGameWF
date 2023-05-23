@@ -43,6 +43,7 @@
             this.cat3 = new System.Windows.Forms.RadioButton();
             this.cat4 = new System.Windows.Forms.RadioButton();
             this.continueBtn = new System.Windows.Forms.Button();
+            this.btnrule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat3)).BeginInit();
@@ -180,12 +181,26 @@
             this.continueBtn.UseVisualStyleBackColor = false;
             this.continueBtn.Click += new System.EventHandler(this.continueBtn_Click);
             // 
+            // btnrule
+            // 
+            this.btnrule.BackColor = System.Drawing.Color.Bisque;
+            this.btnrule.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnrule.ForeColor = System.Drawing.Color.IndianRed;
+            this.btnrule.Location = new System.Drawing.Point(18, 12);
+            this.btnrule.Name = "btnrule";
+            this.btnrule.Size = new System.Drawing.Size(75, 23);
+            this.btnrule.TabIndex = 12;
+            this.btnrule.Text = "Правила";
+            this.btnrule.UseVisualStyleBackColor = false;
+            this.btnrule.Click += new System.EventHandler(this.btnrule_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnrule);
             this.Controls.Add(this.continueBtn);
             this.Controls.Add(this.cat4);
             this.Controls.Add(this.cat3);
@@ -198,8 +213,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Start";
-            this.Text = "Start";
+            this.Text = "Початок гри";
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCat3)).EndInit();
@@ -224,5 +240,6 @@
         private RadioButton cat3;
         private RadioButton cat4;
         private Button continueBtn;
+        private Button btnrule;
     }
 }
