@@ -106,13 +106,21 @@ namespace ballGameWF
         private void Game_Over()
         {
             timer1.Enabled = false;
-            MessageBox.Show("Ваша спроба завершилась! " + Environment.NewLine + "Ви набрали : " + score + Environment.NewLine + "Натисніть Ok, щоб почати знову !");
+            DialogResult dresult = MessageBox.Show("Are you sure ", "Alert"
+                              , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dresult == DialogResult.OK)
+            {
+                this.Hide();
+                GameBall g = new GameBall();
+                g.Show();
+            }
         }
         private void Form1_PlayerCreated(object sender, PlayerEventArgs e)
         {
             // Update the label with the player's name
             lblPlayer.Text = "Гравець: " + e.Player.NickName;
             iconPlayer.Image = e.Player.icon;
+            timer1.Enabled = true;
         }
 
         
