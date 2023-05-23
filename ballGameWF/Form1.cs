@@ -18,17 +18,17 @@ namespace ballGameWF
         Random rand = new Random();
         GraphicsPath path = new GraphicsPath();
         List<PictureBox> items = new List<PictureBox>();
-        string[] files = Directory.GetFiles(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\", "*.png");
-        SoundPlayer playerPopMouse = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\soundMouse.wav");
-        SoundPlayer gameSound = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\gameSound.wav");
-        SoundPlayer playerPopFish = new SoundPlayer(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\sound\clickedpop.wav");
+        string[] files = Directory.GetFiles(@"..\..\..\img\", "*.png");
+        SoundPlayer playerPopMouse = new SoundPlayer(@"..\..\..\sound\soundMouse.wav");
+        SoundPlayer gameSound = new SoundPlayer(@"..\..\..\sound\gameSound.wav");
+        SoundPlayer playerPopFish = new SoundPlayer(@"..\..\..\sound\clickedpop.wav");
         int score = 0;
         List<Player> players = new List<Player>();
         public GameBall()
 
         {
             InitializeComponent();
-            this.Cursor = new Cursor(@"C:\Users\WellDone\source\repos\ballGameWF\ballGameWF\img\cur.cur");
+            this.Cursor = new Cursor(@"..\..\..\img\cur.cur");
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             gameSound.Play();
             Start start = new Start();
